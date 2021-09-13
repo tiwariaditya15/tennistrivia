@@ -1,9 +1,19 @@
-import { CardContainer, CardHeader } from "./styles";
+import { CardContainer, CardContent, CardHeader } from "./styles";
+type CardProps = {
+  title: string;
+  description: string;
+  width?: string;
+};
 
-export default function Card(): JSX.Element {
+export default function Card({
+  title,
+  description,
+  width,
+}: CardProps): JSX.Element {
   return (
-    <CardContainer>
-      <CardHeader>Tennis Forehand</CardHeader>
+    <CardContainer width={width}>
+      <CardHeader>{title}</CardHeader>
+      <CardContent>{description}</CardContent>
     </CardContainer>
   );
 }
