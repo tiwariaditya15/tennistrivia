@@ -1,4 +1,5 @@
 import Card from "../../components/Card";
+import Footer from "../../components/Footer";
 import { Appbar } from "../../components/Appbar";
 import { Carousel } from "../../components/Carousel";
 import { Flex, StyledLink } from "../../components/shared/styles";
@@ -20,6 +21,7 @@ export default function Home(): JSX.Element {
           <Card title="Backhand" description="Backhand Skills" />
         </StyledLink>
       </Flex>
+      <Footer />
     </>
   );
 }
