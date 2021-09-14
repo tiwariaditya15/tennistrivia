@@ -14,7 +14,12 @@ export const Flex = styled.section`
 `;
 
 export const StyledLink = styled(Link)`
+  width: 40%;
+  color: ${(props) => props.theme.primary};
   text-decoration: none;
   padding: 0.4rem;
   margin: 0.4rem;
+  @media screen and (max-width: 748px) {
+    width: 70%;
+  }
 `;
