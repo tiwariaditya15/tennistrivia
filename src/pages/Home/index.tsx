@@ -1,7 +1,8 @@
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
-import { Appbar } from "../../components/Appbar";
-import { Carousel } from "../../components/Carousel";
+import Appbar from "../../components/Appbar";
+import Carousel from "../../components/Carousel";
+import Description from "../../components/Description";
 import { Flex, StyledLink } from "../../components/shared/styles";
 import { images } from "../../assets/images";
 
@@ -12,7 +13,7 @@ export default function Home(): JSX.Element {
       <Carousel images={images} />
       <Flex>
         <StyledLink to="/basics">
-          <Card title="Basics" description="Basics of tennis" mt={"4rem"} />
+          <Card title="Basics" description="Basics of tennis" mt={"6rem"} />
         </StyledLink>
         <StyledLink to="/forehand">
           <Card title="Forehand" description="Forehand Tricks" />
@@ -21,6 +22,7 @@ export default function Home(): JSX.Element {
           <Card title="Backhand" description="Backhand Skills" />
         </StyledLink>
       </Flex>
+      <Description />
       <Footer />
     </>
   );

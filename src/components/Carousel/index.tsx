@@ -5,7 +5,7 @@ type CarouselProps = {
   images: string[];
 };
 
-export function Carousel({ images }: CarouselProps): JSX.Element {
+export default function Carousel({ images }: CarouselProps): JSX.Element {
   const [index, setIndex] = useState<number>(0);
   useEffect(() => {
     const indexInterval = setInterval(() => {
