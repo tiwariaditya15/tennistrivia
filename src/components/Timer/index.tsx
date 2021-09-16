@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Countdown } from "./styles";
 
 export default function Timer(): JSX.Element {
   const [countdown, setCountdown] = useState(30);
@@ -13,7 +14,7 @@ export default function Timer(): JSX.Element {
   }, [countdown]);
   return (
     <>
-      <h1>{countdown}</h1>
+      <Countdown>{countdown}</Countdown>
     </>
   );
 }
