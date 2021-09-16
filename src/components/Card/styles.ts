@@ -4,7 +4,7 @@ import { CardContainerProps } from "./styles.types";
 export const CardContainer = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  color: ${(props) => props.theme.backgroundDark};
+  color: ${(props) => props.theme.primaryDark};
   background: ${(props) => props.theme.backgroundLight};
   padding: 2rem;
   width: ${(props: CardContainerProps) => props.width || "100%"};
@@ -22,5 +22,5 @@ export const CardContainer = styled.section`
 export const CardHeader = styled.section``;
 
 export const CardContent = styled.section`
-  color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.primary};
 `;

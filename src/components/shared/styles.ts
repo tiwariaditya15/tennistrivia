@@ -15,7 +15,7 @@ export const Flex = styled.section`
 
 export const StyledLink = styled(Link)`
   width: 40%;
-  color: ${(props) => props.theme.primary};
+  color: ${(props) => props.theme.background};
   text-decoration: none;
   padding: 0.4rem;
   margin: 0.4rem;

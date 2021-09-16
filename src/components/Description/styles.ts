@@ -4,8 +4,8 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) => props.theme.secondary};
-  color: ${(props) => props.theme.background};
+  background-color: ${(props) => props.theme.backgroundLight};
+  color: ${(props) => props.theme.primary};
   margin-top: 6rem;
   margin-bottom: 6rem;
   padding: 1.5rem;
