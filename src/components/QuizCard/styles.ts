@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { OptionProps } from "./styles.types";
 export const Box = styled.section`
   width: 50%;
   margin-top: 3rem;
@@ -23,11 +23,13 @@ export const Question = styled.section`
 `;
 
 export const Option = styled.section`
-  border: 1px solid ${(props) => props.theme.background};
+  border: 1px solid
+    ${(props: OptionProps) => props.correct || props.incorrect || "#E2E8F0"};
   padding: 1rem;
   color: ${(props) => props.theme.primary};
   width: 100%;
-  cursor: pointer;
+  cursor: ${(props: OptionProps) =>
+    props.notAllowed ? "not-allowed" : "pointer"};
   &:hover {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
       rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;

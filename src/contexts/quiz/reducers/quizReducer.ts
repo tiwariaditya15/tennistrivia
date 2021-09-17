@@ -13,7 +13,7 @@ export function quizReducer(state: QuizState, action: QuizAction) {
     case INCREMENT:
       return {
         ...state,
-        score: state.score + 1,
+        score: state.score + 4,
       };
     case DECREMENT:
       if (state.score > 0) {

@@ -1,11 +1,18 @@
 import React from "react";
 import { QuizAction } from "../contexts/quiz/reducers/quizAction.types";
-import { NEXT, SKIP } from "../constants/quiz.constants";
+import { NEXT, SKIP, INCREMENT, DECREMENT } from "../constants/quiz.constants";
 
-export const nextQuestion = (quizDipatch: React.Dispatch<QuizAction>) => {
-  quizDipatch({ type: NEXT });
+export const answeredCorrect = (quizDispatch: React.Dispatch<QuizAction>) => {
+  quizDispatch({ type: INCREMENT });
 };
 
-export const skipQuestion = (quizDipatch: React.Dispatch<QuizAction>) => {
-  quizDipatch({ type: SKIP });
+export const answeredWrong = (quizDispatch: React.Dispatch<QuizAction>) => {
+  quizDispatch({ type: DECREMENT });
+};
+
+export const nextQuestion = (quizDispatch: React.Dispatch<QuizAction>) => {
+  quizDispatch({ type: NEXT });
+};
+export const skipQuestion = (quizDispatch: React.Dispatch<QuizAction>) => {
+  quizDispatch({ type: SKIP });
 };

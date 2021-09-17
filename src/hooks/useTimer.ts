@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+
 export function useTimer() {
   const [countdown, setCountdown] = useState(30);
+
   useEffect(() => {
     const countdownInterval = setInterval(() => {
       if (countdown > 0) {
@@ -10,7 +12,9 @@ export function useTimer() {
     }, 1000);
     return () => clearInterval(countdownInterval);
   }, [countdown]);
+
   return {
     countdown,
+    setCountdown,
   };
 }
