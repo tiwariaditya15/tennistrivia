@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { useQuizContext } from "../../contexts/QuizProvider";
+import { useQuizContext } from "../../contexts/quiz/QuizProvider";
 import {
   answeredCorrect,
   nextQuestion,

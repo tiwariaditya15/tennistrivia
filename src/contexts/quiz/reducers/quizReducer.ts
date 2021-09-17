@@ -1,4 +1,4 @@
-import { QuizState } from "../../quizState.types";
+import { QuizState } from "../quizState.types";
 import { QuizAction } from "./quizAction.types";
 import {
   INCREMENT,

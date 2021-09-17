@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import QuizCard from "../../components/QuizCard";
 import { Flex } from "../../components/shared/styles";
-import { useQuizContext } from "../../contexts/QuizProvider";
+import { useQuizContext } from "../../contexts/quiz/QuizProvider";
 import { useQuiz } from "../../hooks/";
 import { Message } from "./styles";
 

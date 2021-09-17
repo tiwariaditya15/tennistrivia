@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { QuizProvider } from "./contexts/QuizProvider";
+import { QuizProvider } from "./contexts/quiz/QuizProvider";
 import App from "./App";
 import "./index.css";
 
