@@ -1,18 +1,27 @@
 import { useParams } from "react-router-dom";
 import QuizCard from "../../components/QuizCard";
 import { Flex } from "../../components/shared/styles";
+import { useQuizContext } from "../../contexts/QuizProvider";
 import { useQuiz } from "../../hooks/";
 import { Message } from "./styles";
 
 export default function Quizes(): JSX.Element {
   const { category } = useParams();
-  const { isLoading, data } = useQuiz(category);
-
-  if (!data) return <Message>Something went wrong! Try refreshing!</Message>;
+  const { isLoading, data, error } = useQuiz(category);
+  const {
+    quizState: { current },
+  } = useQuizContext();
+  if (error)
+    return (
+      <Message marginTop="4rem">We couldn't fetch data from server :'(</Message>
+    );
   return (
     <Flex>
-      {isLoading && <Message>Loading...</Message>}
-      <QuizCard quiz={data.quizes[0]} />
+      {isLoading ? (
+        <Message>Loading...</Message>
+      ) : (
+        <QuizCard quiz={data.quizes[current - 1]} />
+      )}
     </Flex>
   );
 }

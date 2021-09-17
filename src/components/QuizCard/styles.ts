@@ -43,7 +43,6 @@ export const Next = styled.button`
   margin: 1rem 0;
   cursor: pointer;
   &:hover {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 `;
 
@@ -52,6 +51,13 @@ export const Skip = styled(Next)`
   border: 1px solid ${(props) => props.theme.primaryDark};
   background-color: inherit;
   &:hover {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: ${(props) => props.theme.primaryDark};
+    color: ${(props) => props.theme.backgroundLight};
   }
+`;
+
+export const Countdown = styled.section`
+  color: ${(props) => props.theme.primary};
+  font-size: 1.2rem;
+  font-weight: 300;
 `;

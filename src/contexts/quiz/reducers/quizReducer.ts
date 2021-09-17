@@ -1,6 +1,12 @@
 import { QuizState } from "../../quizState.types";
 import { QuizAction } from "./quizAction.types";
-import { INCREMENT, DECREMENT, RESET } from "../../../constants/quiz.constants";
+import {
+  INCREMENT,
+  DECREMENT,
+  RESET,
+  SKIP,
+  NEXT,
+} from "../../../constants/quiz.constants";
 
 export function quizReducer(state: QuizState, action: QuizAction) {
   switch (action.type) {
@@ -22,6 +28,29 @@ export function quizReducer(state: QuizState, action: QuizAction) {
         ...state,
         score: 0,
         current: -1,
+      };
+    case SKIP:
+      if (state.current === 5) {
+        return {
+          ...state,
+          current: 1,
+        };
+      }
+      return {
+        ...state,
+        current: state.current + 1,
+      };
+
+    case NEXT:
+      if (state.current === 5) {
+        return {
+          ...state,
+          current: 1,
+        };
+      }
+      return {
+        ...state,
+        current: state.current + 1,
       };
     default:
       return { ...state };

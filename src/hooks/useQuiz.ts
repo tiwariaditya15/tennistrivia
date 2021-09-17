@@ -5,6 +5,7 @@ export function useQuiz(category: string) {
   const { isLoading, isError, data, error } = useQuery("quiz", () =>
     fetchQuiz(category)
   );
+
   return {
     isLoading,
     isError,

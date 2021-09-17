@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { quizReducer } from "./quiz/reducers/quizReducer";
 import { QuizAction } from "./quiz/reducers/quizAction.types";
 import { QuizState } from "./quizState.types";
@@ -29,4 +29,8 @@ export function QuizProvider({ children }: QuizProviderProps): JSX.Element {
       {children}
     </QuizContext.Provider>
   );
+}
+
+export function useQuizContext() {
+  return useContext(QuizContext);
 }
