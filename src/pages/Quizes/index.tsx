@@ -13,7 +13,7 @@ export default function Quizes(): JSX.Element {
   } = useQuizContext();
   if (error)
     return (
-      <Message marginTop="4rem">We couldn't fetch data from server :'(</Message>
+      <Message marginTop="3rem">Couldn't fetch data from server :'(</Message>
     );
   return (
     <Flex>

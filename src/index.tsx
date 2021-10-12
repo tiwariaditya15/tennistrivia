@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { QuizProvider } from "./contexts/quiz/QuizProvider";
+import { AuthProvider } from "./contexts/auth/AuthProvider";
 import App from "./App";
 import "./index.css";
 
@@ -12,9 +13,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <QueryClientProvider client={queryClient}>
-        <QuizProvider>
-          <App />
-        </QuizProvider>
+        <AuthProvider>
+          <QuizProvider>
+            <App />
+          </QuizProvider>
+        </AuthProvider>
       </QueryClientProvider>
     </Router>
   </React.StrictMode>,

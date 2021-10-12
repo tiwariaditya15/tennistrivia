@@ -23,3 +23,31 @@ export const StyledLink = styled(Link)`
     width: 70%;
   }
 `;
+
+export const Input = styled.input`
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.2rem auto;
+  border: 1px solid ${(props) => props.theme.primary};
+  border-radius: 0.2rem;
+  &::focus {
+    border: 1px solid ${(props) => props.theme.primaryDark};
+  }
+`;
+
+export const Button = styled.button`
+  width: 100%;
+  background-color: ${(props) => props.theme.primaryDark};
+  color: ${(props) => props.theme.background};
+  border: 0;
+  padding: 0.6rem 1.8rem;
+  border-radius: 0.2rem;
+  margin: 1rem 0;
+  cursor: pointer;
+`;
+
+export const Bold = styled.span`
+  font-weight: 800;
+  cursor: pointer;
+  color: ${(props) => props.theme.primary};
+`;

@@ -3,7 +3,12 @@ import { quizReducer } from "./reducers/quizReducer";
 import { QuizAction } from "./reducers/quizAction.types";
 import { QuizState } from "./quizState.types";
 
-const initialQuizState: QuizState = { score: 0, current: 1, error: null };
+const initialQuizState: QuizState = {
+  score: 0,
+  current: 1,
+  selectedOptions: [],
+  error: null,
+};
 
 const QuizContext = createContext<{
   quizState: QuizState;

@@ -6,6 +6,7 @@ import {
   RESET,
   SKIP,
   NEXT,
+  SELECTED_OPTION,
 } from "../../../constants/quiz.constants";
 
 export function quizReducer(state: QuizState, action: QuizAction) {
@@ -51,6 +52,29 @@ export function quizReducer(state: QuizState, action: QuizAction) {
       return {
         ...state,
         current: state.current + 1,
+      };
+    case SELECTED_OPTION:
+      return {
+        ...state,
+        selectedOptions: state.selectedOptions.some(
+          (el) => el.category === action.payload.category
+        )
+          ? state.selectedOptions.map((el) => {
+              if (el.category === action.payload.category) {
+                return {
+                  ...el,
+                  selection: {
+                    ...el.selection,
+                    [action.payload.current]: action.payload.idx,
+                  },
+                };
+              }
+              return { ...el };
+            })
+          : state.selectedOptions.concat({
+              category: action.payload.category,
+              selection: { [action.payload.current]: action.payload.idx },
+            }),
       };
     default:
       return { ...state };

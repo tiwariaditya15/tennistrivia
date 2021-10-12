@@ -5,7 +5,7 @@ import {
   answeredCorrect,
   nextQuestion,
   answeredWrong,
-} from "../../actions/quiz";
+} from "../../actions/quizes";
 import { useTimer } from "../../hooks";
 import { Quiz } from "../../types/quiz.types";
 import {
@@ -38,9 +38,9 @@ export default function QuizCard({ quiz }: QuizProps): JSX.Element {
       selectedOption === quiz.correctValue &&
       idx === quiz.correctOption - 1
     ) {
-      answeredCorrect(quizDispatch);
+      answeredCorrect(idx, current, quiz.category, quizDispatch);
     } else {
-      answeredWrong(quizDispatch);
+      answeredWrong(idx, current, quiz.category, quizDispatch);
     }
   };
 
@@ -57,11 +57,11 @@ export default function QuizCard({ quiz }: QuizProps): JSX.Element {
     if (attempted) {
       setCountdown(0);
     }
-  }, [countdown]);
+  }, [countdown, attempted]);
   return (
     <Box>
       <Flex flexDirection="row" justify="space-between">
-        <QuestionNumber>Q.{current}</QuestionNumber>
+        <QuestionNumber>{current}/5</QuestionNumber>
         <Countdown>{countdown}/30</Countdown>
       </Flex>
       <Question>{quiz.question}</Question>
@@ -92,7 +92,10 @@ export default function QuizCard({ quiz }: QuizProps): JSX.Element {
             setAttempted(false);
             setCountdown(30);
             if (current === 5) {
-              navigate("/results", { replace: true });
+              navigate("/result", {
+                replace: true,
+                state: { from: { category: quiz.category.toLowerCase() } },
+              });
             }
           }}
         >
