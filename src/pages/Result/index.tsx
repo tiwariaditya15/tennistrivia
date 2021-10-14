@@ -1,44 +1,22 @@
 import { useEffect } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { useQuizContext } from "../../contexts/quiz/QuizProvider";
-import { useQuiz } from "../../hooks";
+import { useQuiz, useScoreMutation } from "../../hooks";
 import { Quiz } from "../../types/quiz.types";
 import { Loading, Score, Point, Message, NextQuiz } from "./styles";
 import { Flex, StyledLink } from "../../components/shared/styles";
-import { Location, TScores } from "./types";
+import { Location } from "./types";
 import Card from "./Card";
 import ScoreDoughnut from "./ScoreDoughnut";
-import { useMutation, useQueryClient } from "react-query";
-import { updateScore } from "../../api/scores";
 
 export default function Result(): JSX.Element {
   const location = useLocation();
-  const queryClient = useQueryClient();
   const { from } = (location.state as Location) || { from: { category: null } };
   const { isLoading, isError, data } = useQuiz(from.category);
   const {
-    quizState: { selectedOptions, score },
+    quizState: { score },
   } = useQuizContext();
-
-  const scoreMutation = useMutation(() => updateScore(score, from.category), {
-    onMutate: async () => {
-      await queryClient.cancelQueries("scores");
-      const previousScores = queryClient.getQueryData<TScores>("scores");
-      queryClient.setQueryData<TScores>("score", (old) => [
-        ...old,
-        { category: from.category, score },
-      ]);
-      console.log({ previousScores });
-      return { previousScores };
-    },
-    onError: (err, variable, context) => {
-      if (context?.previousScores) {
-        queryClient.setQueryData<TScores>("scores", context.previousScores);
-      }
-    },
-    onSettled: () => queryClient.invalidateQueries("scores"),
-  });
-
+  const { scoreMutation } = useScoreMutation(score, from.category);
   useEffect(() => {
     scoreMutation.mutate();
   }, []);

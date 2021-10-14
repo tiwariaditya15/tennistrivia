@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { ContainerProps, FlexProps } from "./styles.types";
+import { ContainerProps, FlexProps, StyledLinkProps } from "./styles.types";
 
 export const Container = styled.section`
   display: ${(props: ContainerProps) => (props.flex ? "flex" : "")};
@@ -17,8 +17,9 @@ export const StyledLink = styled(Link)`
   width: 40%;
   color: ${(props) => props.theme.background};
   text-decoration: none;
-  padding: 0.4rem;
-  margin: 0.4rem;
+  padding: ${(props: StyledLinkProps) => props.p || "0.2rem"};
+  margin: ${(props: StyledLinkProps) => props.margin || "0.2rem"};
+  margin-left: ${(props: StyledLinkProps) => props.ml || "0rem"};
   @media screen and (max-width: 748px) {
     width: 70%;
   }

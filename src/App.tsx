@@ -5,7 +5,8 @@ import { useInterceptors } from "./hooks";
 import axios from "axios";
 import Appbar from "./components/Appbar";
 import Router from "./components/Router";
-import { NavLink } from "react-router-dom";
+import Modal from "./components/Modal";
+import Navigation from "./components/Navigation";
 
 function App() {
   useInterceptors(axios);
@@ -16,8 +17,10 @@ function App() {
     <>
       <ThemeProvider theme={theme["dark"]}>
         <Appbar />
-        <NavLink to="/scores">Score</NavLink>
         <Router />
+        <Modal>
+          <Navigation />
+        </Modal>
       </ThemeProvider>
     </>
   );

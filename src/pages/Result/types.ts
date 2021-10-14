@@ -10,3 +10,7 @@ type TScore = {
   category: string;
   playerId: string;
 }[];
+
+export type TScores = {
+  scores: TScore[];
+};

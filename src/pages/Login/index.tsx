@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { login } from "../../actions/auth";
@@ -17,7 +18,10 @@ type TLogin = {
 };
 
 export function Login(): JSX.Element {
-  const { authDispatch } = useAuthContext();
+  const {
+    authState: { logged },
+    authDispatch,
+  } = useAuthContext();
   const formik = useFormik<TLogin>({
     initialValues: {
       email: "",
@@ -34,7 +38,7 @@ export function Login(): JSX.Element {
       login(values, authDispatch);
     },
   });
-
+  if (logged) return <Navigate to="/" />;
   return (
     <Wrapper>
       <form onSubmit={formik.handleSubmit}>

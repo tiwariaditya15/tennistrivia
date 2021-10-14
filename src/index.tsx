@@ -6,6 +6,7 @@ import { QuizProvider } from "./contexts/quiz/QuizProvider";
 import { AuthProvider } from "./contexts/auth/AuthProvider";
 import App from "./App";
 import "./index.css";
+import InteractionsProvider from "./contexts/interactions/InteractionsProvider";
 
 const queryClient = new QueryClient();
 
@@ -15,7 +16,9 @@ ReactDOM.render(
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <QuizProvider>
-            <App />
+            <InteractionsProvider>
+              <App />
+            </InteractionsProvider>
           </QuizProvider>
         </AuthProvider>
       </QueryClientProvider>

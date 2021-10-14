@@ -10,8 +10,8 @@ export default function Router(): JSX.Element {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="quizes/:category" element={<Quizes />} />
       <Route path="login" element={<Login />} />
+      <Route path="quizes/:category" element={<Quizes />} />
       <PrivateRoute path="scores" element={<Scores />} />
       <PrivateRoute path="result" element={<Result />} />
     </Routes>
