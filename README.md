@@ -6,8 +6,9 @@
 
 ## Tech Stack
 
-- React + TS
+- ReactJS + TS
 - Context API
 - Styled Component
 - React Router
+- React ChartJS
 - Storybook (testing components)
