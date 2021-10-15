@@ -4,3 +4,4 @@ export { useTimer } from "./useTimer";
 export { useInterceptors } from "./useInterceptors";
 export { useScores } from "./useScores";
 export { useScoreMutation } from "./useScoreMutation";
+export { useLocalStorage } from "./useLocalStorage";

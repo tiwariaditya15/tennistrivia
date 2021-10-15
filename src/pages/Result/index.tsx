@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { useQuizContext } from "../../contexts/quiz/QuizProvider";
+import { RESET } from "../../constants/quiz.constants";
 import { useQuiz, useScoreMutation } from "../../hooks";
 import { Quiz } from "../../types/quiz.types";
 import { Loading, Score, Point, Message, NextQuiz } from "./styles";
@@ -15,15 +16,18 @@ export default function Result(): JSX.Element {
   const { isLoading, isError, data } = useQuiz(from.category);
   const {
     quizState: { score },
+    quizDispatch,
   } = useQuizContext();
   const { scoreMutation } = useScoreMutation(score, from.category);
   useEffect(() => {
     scoreMutation.mutate();
   }, []);
-
+  useEffect(() => {
+    quizDispatch({ type: RESET });
+  }, []);
   if (!from.category) return <Navigate to="/" replace={true} />;
   if (isLoading) return <Loading>Loading...</Loading>;
-  if (isError) return <Message>Couldn't fetch data server :'(</Message>;
+  if (isError) return <Message>Couldn't fetch data from server :'(</Message>;
   return (
     <>
       {data.quizes?.length && (
@@ -35,9 +39,9 @@ export default function Result(): JSX.Element {
           {data.quizes.map((quiz: Quiz, quizIdx: number) => (
             <Card quiz={quiz} quizIdx={quizIdx} />
           ))}
-          <StyledLink to="/">
+          <StyledLink to="/" replace={true}>
             <Flex>
-              <NextQuiz onClick={() => {}}>New Quiz</NextQuiz>
+              <NextQuiz>New Quiz</NextQuiz>
             </Flex>
           </StyledLink>
         </>

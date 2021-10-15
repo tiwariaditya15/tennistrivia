@@ -17,7 +17,7 @@ export const Box = styled.section`
     ${(props: BoxProps) => props.mb || "0"} auto;
 
   border: ${(props: BoxProps) => (props.border ? "1px" : "0px")} solid
-    ${(props: BoxProps) => props.correct || "#E2E8F0"};
+    ${(props: BoxProps) => props.correct || props.wrong || "#E2E8F0"};
 
   padding: ${(props: BoxProps) => props.p || "0rem"};
 

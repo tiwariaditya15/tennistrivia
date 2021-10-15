@@ -28,7 +28,7 @@ export function quizReducer(state: QuizState, action: QuizAction) {
       return {
         ...state,
         score: 0,
-        current: -1,
+        current: 1,
       };
     case SKIP:
       if (state.current === 5) {

@@ -25,7 +25,10 @@ export default function Navigation(): JSX.Element {
             to="/"
             p="1rem"
             ml="0.6rem"
-            onClick={() => authDispatch({ type: LOGOUT })}
+            onClick={() => {
+              authDispatch({ type: LOGOUT });
+              localStorage.removeItem("AUTH_TOKEN");
+            }}
           >
             Logout
           </StyledLink>

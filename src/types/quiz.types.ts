@@ -6,3 +6,10 @@ export type Quiz = {
   correctValue: string;
   correctOption: number;
 };
+
+export type Score = {
+  id: string;
+  score: number;
+  category: string;
+  playerId?: string;
+};
