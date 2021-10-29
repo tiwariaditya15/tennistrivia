@@ -8,6 +8,7 @@
 
 - ReactJS + TS
 - Context API
+- React Query
 - Styled Component
 - React Router
 - React ChartJS
