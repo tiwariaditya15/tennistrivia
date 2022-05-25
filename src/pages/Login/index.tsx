@@ -11,6 +11,7 @@ import {
 } from "../../components/shared/styles";
 import { useAuthContext } from "../../contexts/auth/AuthProvider";
 import { FillCreds, Redirect, Wrapper, Text } from "./styles";
+import { useState } from "react";
 
 type TLogin = {
   email: string;
@@ -18,6 +19,7 @@ type TLogin = {
 };
 
 export function Login(): JSX.Element {
+  const [logging, setLogging] = useState(false);
   const {
     authState: { logged },
     authDispatch,
@@ -35,6 +37,7 @@ export function Login(): JSX.Element {
         .required("Required"),
     }),
     onSubmit: (values) => {
+      setLogging(true);
       login(values, authDispatch);
     },
   });
@@ -63,7 +66,7 @@ export function Login(): JSX.Element {
               formik.errors.password &&
               formik.errors.password}
           </Text>
-          <Button type="submit">Login</Button>
+          <Button type="submit">{logging ? "Loging in..." : "Login"}</Button>
         </Flex>
       </form>
       <FillCreds
