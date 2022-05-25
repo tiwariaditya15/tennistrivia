@@ -10,8 +10,8 @@ export const Box = styled.section`
   align-items: center;
 `;
 
-export const SidenavIcon = styled.img`
-  background-color: ${(props) => props.theme.background};
+export const SidenavIcon = styled.section`
+  color: white;
   width: 1.5rem;
   margin-left: 0.6rem;
   border-radius: 0.1rem;

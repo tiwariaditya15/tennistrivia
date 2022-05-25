@@ -9,7 +9,7 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Carousel images={images} />
-      <Flex>
+      <Flex pt={"3rem"} pb={"3rem"}>
         <StyledLink to="quizes/basics">
           <Card title="Basics" description="Basics of tennis" mt={"6rem"} />
         </StyledLink>

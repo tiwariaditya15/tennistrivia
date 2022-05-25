@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { MessageProps } from "./styles.types";
 
+export const ScoreGrid = styled.section`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+`;
+
 export const Message = styled.section`
   color: ${(props) => props.theme.primary};
   display: flex;

@@ -1,6 +1,6 @@
 import ScoreHeat from "./ScoreHeat";
 import { useScores } from "../../hooks";
-import { Message, Wrapper, Heading, Score } from "./styles";
+import { Message, Wrapper, Heading, Score, ScoreGrid } from "./styles";
 import { Flex } from "../../components/shared/styles";
 
 export default function Scores(): JSX.Element {
@@ -40,11 +40,17 @@ export default function Scores(): JSX.Element {
         <Heading>Forehand</Heading>
         <Heading>Backhand</Heading>
       </Flex>
-      <Flex flexDirection="row" justify="space-between">
-        <Flex align="center">{basicsScores}</Flex>
-        <Flex align="center">{forehandScores}</Flex>
-        <Flex align="center">{backhandScores}</Flex>
-      </Flex>
+      <ScoreGrid>
+        <Flex align="center" justify="start">
+          {basicsScores}
+        </Flex>
+        <Flex align="center" justify="start">
+          {forehandScores}
+        </Flex>
+        <Flex align="center" justify="start">
+          {backhandScores}
+        </Flex>
+      </ScoreGrid>
     </Wrapper>
   );
 }

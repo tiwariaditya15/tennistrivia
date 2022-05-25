@@ -11,6 +11,8 @@ export const Flex = styled.section`
   flex-direction: ${(props: FlexProps) => props.flexDirection || "column"};
   justify-content: ${(props: FlexProps) => props.justify || "center"};
   align-items: ${(props: FlexProps) => props.align || "center"};
+  padding-top: ${(props: FlexProps) => props.pt || ""};
+  padding-bottom: ${(props: FlexProps) => props.pb || ""};
 `;
 
 export const StyledLink = styled(Link)`

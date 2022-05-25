@@ -6,6 +6,8 @@ export type FlexProps = {
   justify?: string;
   align?: string;
   flexDirection?: string;
+  pt?: string;
+  pb?: string;
 };
 
 export type StyledLinkProps = {
