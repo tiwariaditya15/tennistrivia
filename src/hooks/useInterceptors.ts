@@ -33,7 +33,7 @@ export function useInterceptors(axios: AxiosStatic) {
   };
   const onResponseError = (error: AxiosError) => {
     if (error.response?.status === UNAUTHORIZED) {
-      localStorage.removeItem("AUTH_TOKEN");
+      localStorage.removeItem("AUTH_TOKEN_TENNISTRIVIA");
       authDispatch({ type: LOGOUT });
       navigate("/login");
     }

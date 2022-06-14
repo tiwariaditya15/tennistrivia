@@ -6,8 +6,8 @@ type TAuthProvider = {
   children: JSX.Element;
 };
 const initialValues: AuthState = {
-  logged: localStorage.getItem("AUTH_TOKEN") ? true : false,
-  token: localStorage.getItem("AUTH_TOKEN") || null,
+  logged: localStorage.getItem("AUTH_TOKEN_TENNISTRIVIA") ? true : false,
+  token: localStorage.getItem("AUTH_TOKEN_TENNISTRIVIA") || null,
   error: null,
 };
 

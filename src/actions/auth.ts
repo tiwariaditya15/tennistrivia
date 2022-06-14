@@ -13,7 +13,7 @@ export async function login(
 ) {
   try {
     const res = await api.login(email, password);
-    localStorage.setItem("AUTH_TOKEN", res.data.token);
+    localStorage.setItem("AUTH_TOKEN_TENNISTRIVIA", res.data.token);
     authDispatch({ type: LOGIN, payload: { token: res.data.token } });
   } catch (error) {
     if (axios.isAxiosError(error)) {

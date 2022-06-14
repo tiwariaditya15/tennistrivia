@@ -27,7 +27,7 @@ export default function Navigation(): JSX.Element {
             ml="0.6rem"
             onClick={() => {
               authDispatch({ type: LOGOUT });
-              localStorage.removeItem("AUTH_TOKEN");
+              localStorage.removeItem("AUTH_TOKEN_TENNISTRIVIA");
             }}
           >
             Logout
