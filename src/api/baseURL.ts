@@ -1,1 +1,1 @@
-export const baseURL = "https://tennistriviaapi.tiwariaditya.repl.co";
+export const baseURL = process["env"]["REACT_APP_ENDPOINT"];
